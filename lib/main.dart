@@ -127,6 +127,7 @@ class _MyHomePageState extends State<MyHomePage> {
 */
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:tut_getx_app/home_screen.dart';
 
 void main() {
@@ -138,7 +139,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(context) {
-    return MaterialApp(
+    return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       home: HomeScreen(),
     );
