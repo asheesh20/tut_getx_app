@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
+import 'package:tut_getx_app/screen_one.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -87,6 +88,20 @@ class _HomeScreenState extends State<HomeScreen> {
                 );
               },
             ),
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+          TextButton(
+            onPressed: () {
+              // Navigator.of(context)
+              //     .push(MaterialPageRoute(builder: (context) => ScreenOne()));
+              // Get.to(const ScreenOne(
+              //   name: 'Testing Name',
+              // ));
+              Get.toNamed('/screenOne');
+            },
+            child: const Text('Move to Next Screen'),
           ),
         ],
       ),

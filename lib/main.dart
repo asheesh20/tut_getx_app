@@ -129,6 +129,8 @@ class _MyHomePageState extends State<MyHomePage> {
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:tut_getx_app/home_screen.dart';
+import 'package:tut_getx_app/screen_one.dart';
+import 'package:tut_getx_app/screen_two.dart';
 
 void main() {
   runApp(const MyApp());
@@ -142,6 +144,12 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       home: HomeScreen(),
+      // For Routing
+      getPages: [
+        GetPage(name: '/', page: () => HomeScreen()),
+        GetPage(name: '/screenOne', page: () => ScreenOne()),
+        GetPage(name: '/screenTwo', page: () => ScreenTwo()),
+      ],
     );
   }
 }
