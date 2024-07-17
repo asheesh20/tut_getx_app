@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:tut_getx_app/controller/counter_controller.dart';
+import 'package:tut_getx_app/view/fourth_screen.dart';
 
 class ThirdScreen extends StatefulWidget {
   const ThirdScreen({super.key});
@@ -25,17 +26,30 @@ class _ThirdScreenState extends State<ThirdScreen> {
       appBar: AppBar(
         title: const Text('Third Screen'),
       ),
-      body: Center(
-          // child: Text(
-          //   counter.toString(),
-          //   style: TextStyle(fontSize: 60),
-          // ),
-          child: Obx(() {
-        return Text(
-          controller.counter.toString(),
-          style: const TextStyle(fontSize: 60),
-        );
-      })),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Center(
+              // child: Text(
+              //   counter.toString(),
+              //   style: TextStyle(fontSize: 60),
+              // ),
+              child: Obx(() {
+            return Text(
+              controller.counter.toString(),
+              style: const TextStyle(fontSize: 60),
+            );
+          })),
+          Center(
+            child: TextButton(
+              onPressed: () {
+                Get.to(FourthScreen());
+              },
+              child: Text('Move to Fourth Screen'),
+            ),
+          )
+        ],
+      ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           // counter++;
