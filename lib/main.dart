@@ -128,6 +128,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:tut_getx_app/view/fifth_screen.dart';
 import 'package:tut_getx_app/view/home_screen.dart';
 import 'package:tut_getx_app/view/screen_one.dart';
 import 'package:tut_getx_app/view/screen_two.dart';
@@ -145,7 +146,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       //home: HomeScreen(),
-      home: ThirdScreen(),
+      home: FifthScreen(),
       // For Routing
       getPages: [
         GetPage(name: '/', page: () => HomeScreen()),
