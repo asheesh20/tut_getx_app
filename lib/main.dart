@@ -132,6 +132,7 @@ import 'package:tut_getx_app/view/fifth_screen.dart';
 import 'package:tut_getx_app/view/home_screen.dart';
 import 'package:tut_getx_app/view/screen_one.dart';
 import 'package:tut_getx_app/view/screen_two.dart';
+import 'package:tut_getx_app/view/sixth_screen.dart';
 import 'package:tut_getx_app/view/third_screen.dart';
 
 void main() {
@@ -146,7 +147,8 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       //home: HomeScreen(),
-      home: FifthScreen(),
+      //home: FifthScreen(),
+      home: SixthScreen(),
       // For Routing
       getPages: [
         GetPage(name: '/', page: () => HomeScreen()),
