@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:tut_getx_app/controller/counter_controller.dart';
 import 'package:tut_getx_app/controller/fruits_controller.dart';
 
 class SixthScreen extends StatefulWidget {
@@ -11,38 +10,36 @@ class SixthScreen extends StatefulWidget {
 }
 
 class _SixthScreenState extends State<SixthScreen> {
-  final TestingController controller = Get.put(TestingController());
-  //int x = 1;
+  //double variable = 0;
+  final RandomController random = Get.put(RandomController());
   @override
   Widget build(context) {
-    print('Good');
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Sixth Screen'),
+        title: Text('Slider Example'),
       ),
       body: Column(
+        //mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Center(
-            // child: Text(
-            //   x.toString(),
-            //   style: const TextStyle(fontSize: 50),
-            // ),
-            child: Obx(() => Text(
-                  controller.x.toString(),
-                  style: const TextStyle(fontSize: 50),
-                )),
-          ),
+          Text('Nothing as such'),
+          //Obx(() => Text('Nothing as such')),
+          Obx(() => Slider(
+                value: random.variable.value,
+                onChanged: (value) {
+                  random.changingMethod(value);
+                },
+              ))
+          // Slider(
+          //     value: variable,
+          //     onChanged: (value) {
+          //       setState(() {
+          //         variable = value;
+          //       });
+          //       // variable = value;
+          //     }),
         ],
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          controller.increment();
-          // x++;
-          // setState(() {});
-        },
-        child: Icon(Icons.add),
       ),
     );
   }
