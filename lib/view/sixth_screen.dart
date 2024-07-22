@@ -10,35 +10,40 @@ class SixthScreen extends StatefulWidget {
 }
 
 class _SixthScreenState extends State<SixthScreen> {
-  //double variable = 0;
-  final RandomController random = Get.put(RandomController());
+  //bool change = false;
+  final TestingController notifi = Get.put(TestingController());
   @override
   Widget build(context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Slider Example'),
+        title: const Text('Sixth Screen'),
       ),
-      body: Column(
-        //mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      body: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Text('Nothing as such'),
-          //Obx(() => Text('Nothing as such')),
-          Obx(() => Slider(
-                value: random.variable.value,
-                onChanged: (value) {
-                  random.changingMethod(value);
-                },
-              ))
-          // Slider(
-          //     value: variable,
+          const Text(
+            'Notification',
+            style: TextStyle(fontSize: 30),
+          ),
+          const SizedBox(
+            width: 50,
+          ),
+          Obx(
+            () => Switch(
+              value: notifi.change.value,
+              onChanged: (value) {
+                notifi.pushButton(value);
+              },
+            ),
+          )
+          // Switch(
+          //     value: change,
           //     onChanged: (value) {
           //       setState(() {
-          //         variable = value;
+          //         change = value;
           //       });
-          //       // variable = value;
-          //     }),
+          //     })
         ],
       ),
     );

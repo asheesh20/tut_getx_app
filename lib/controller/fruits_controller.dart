@@ -21,13 +21,24 @@
 //   }
 // }
 
+// import 'package:flutter/material.dart';
+// import 'package:get/get.dart';
+
+// class RandomController extends GetxController {
+//   RxDouble variable = 0.0.obs;
+
+//   changingMethod(value) {
+//     variable.value = value;
+//   }
+// }
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class RandomController extends GetxController {
-  RxDouble variable = 0.0.obs;
+class TestingController extends GetxController {
+  RxBool change = false.obs;
 
-  changingMethod(value) {
-    variable.value = value;
+  pushButton(bool value) {
+    change.value = value;
   }
 }
