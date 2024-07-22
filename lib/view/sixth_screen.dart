@@ -10,42 +10,62 @@ class SixthScreen extends StatefulWidget {
 }
 
 class _SixthScreenState extends State<SixthScreen> {
-  //bool change = false;
-  final TestingController notifi = Get.put(TestingController());
+  // final List<String> places = [
+  //   'California',
+  //   'Los Angles',
+  //   'Miami',
+  //   'Florida',
+  //   'San Francisco',
+  //   'New York'
+  // ];
+  // final List<String> favPlaces = [];
+  final PlacesController destination = Get.put(PlacesController());
   @override
   Widget build(context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Sixth Screen'),
       ),
-      body: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          const Text(
-            'Notification',
-            style: TextStyle(fontSize: 30),
-          ),
-          const SizedBox(
-            width: 50,
-          ),
-          Obx(
-            () => Switch(
-              value: notifi.change.value,
-              onChanged: (value) {
-                notifi.pushButton(value);
-              },
-            ),
-          )
-          // Switch(
-          //     value: change,
-          //     onChanged: (value) {
-          //       setState(() {
-          //         change = value;
-          //       });
-          //     })
-        ],
-      ),
+      body: ListView.builder(
+          //itemCount: places.length,
+          itemCount: destination.places.length,
+          itemBuilder: (context, index) {
+            return Card(
+              // child: ListTile(
+              //   onTap: () {
+              //     if (favPlaces.contains(places[index])) {
+              //       favPlaces.remove(places[index]);
+              //     } else {
+              //       favPlaces.add(places[index]);
+              //     }
+              //     setState(() {});
+              //   },
+              //   title: Text(places[index].toString()),
+              //   trailing: Icon(
+              //     Icons.favorite,
+              //     color: favPlaces.contains(places[index]) ? Colors.red : null,
+              //   ),
+              // ),
+              child: Obx(() => ListTile(
+                    onTap: () {
+                      if (destination.favPlaces
+                          .contains(destination.places[index])) {
+                        destination.removePlace(destination.places[index]);
+                      } else {
+                        destination.addPlace(destination.places[index]);
+                      }
+                    },
+                    title: Text(destination.places[index].toString()),
+                    trailing: Icon(
+                      Icons.favorite,
+                      color: destination.favPlaces
+                              .contains(destination.places[index])
+                          ? Colors.red
+                          : Colors.grey[300],
+                    ),
+                  )),
+            );
+          }),
     );
   }
 }

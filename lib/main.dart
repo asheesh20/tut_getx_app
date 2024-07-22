@@ -132,6 +132,7 @@ import 'package:tut_getx_app/view/fifth_screen.dart';
 import 'package:tut_getx_app/view/home_screen.dart';
 import 'package:tut_getx_app/view/screen_one.dart';
 import 'package:tut_getx_app/view/screen_two.dart';
+import 'package:tut_getx_app/view/seventh_screen.dart';
 import 'package:tut_getx_app/view/sixth_screen.dart';
 import 'package:tut_getx_app/view/third_screen.dart';
 
@@ -148,7 +149,8 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       //home: HomeScreen(),
       //home: FifthScreen(),
-      home: SixthScreen(),
+      //home: SixthScreen(),
+      home: SeventhScreen(),
       // For Routing
       getPages: [
         GetPage(name: '/', page: () => HomeScreen()),

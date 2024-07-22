@@ -32,13 +32,36 @@
 //   }
 // }
 
+// import 'package:flutter/material.dart';
+// import 'package:get/get.dart';
+
+// class TestingController extends GetxController {
+//   RxBool change = false.obs;
+
+//   pushButton(bool value) {
+//     change.value = value;
+//   }
+// }
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class TestingController extends GetxController {
-  RxBool change = false.obs;
+class PlacesController extends GetxController {
+  RxList places = [
+    'California',
+    'Los Angles',
+    'Miami',
+    'Florida',
+    'San Francisco',
+    'New York'
+  ].obs;
+  RxList favPlaces = [].obs;
 
-  pushButton(bool value) {
-    change.value = value;
+  addPlace(value) {
+    favPlaces.add(value);
+  }
+
+  removePlace(value) {
+    favPlaces.remove(value);
   }
 }
